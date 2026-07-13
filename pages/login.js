@@ -64,10 +64,7 @@ export default function Login() {
           {loading ? 'Ingresando…' : 'Ingresar'}
         </button>
 
-        <p className="text-xs text-muted mt-5">
-          ¿No tenés usuario? Pedile al administrador que lo cree con{' '}
-          <code className="bg-paper px-1 py-0.5 rounded">npm run create-user</code>.
-        </p>
+        
       </form>
     </div>
   );
