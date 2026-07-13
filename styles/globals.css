@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+body {
+  background: #F5F8F7;
+  color: #12232A;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.grid-cell-active input {
+  width: 46px;
+  height: 26px;
+  border: none;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  background: transparent;
+  color: #12232A;
+}
+.grid-cell-active input:focus {
+  outline: none;
+  background: #E4F2F0;
+}
+.grid-cell-inactive {
+  background-image: repeating-linear-gradient(135deg, #F1F4F3, #F1F4F3 3px, #E7ECEB 3px, #E7ECEB 6px);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
