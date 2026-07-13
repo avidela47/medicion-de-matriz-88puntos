@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "create-user": "node scripts/create-user.js"
+    "create-user": "node scripts/create-user.js",
+    "drop-email-index": "node scripts/drop-email-index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

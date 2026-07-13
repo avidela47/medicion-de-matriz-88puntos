@@ -171,6 +171,10 @@ export default function Home({ user }) {
                 <span className="w-5 h-5 inline-flex items-center justify-center rounded-full bg-teal-700 text-white text-[11px] font-mono">2</span>
                 Grilla de medición (88 puntos)
               </h2>
+              <div className="rotate-hint no-print items-center gap-2 bg-amber text-white px-4 py-2.5 rounded-lg mb-3 text-[13px]">
+                <span>📱↻</span>
+                <span>Girá el tablet a horizontal para cargar la grilla más cómodo.</span>
+              </div>
               <GridInput grid={grid} onChange={updateCell} filled={results.filled} />
             </div>
 
