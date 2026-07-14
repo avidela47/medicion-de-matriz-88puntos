@@ -1,5 +1,6 @@
 # ITELSA — Relevamiento Lumínico
 
+
 App para cargar relevamientos de iluminancia (grilla de 88 puntos), calcular
 Media / Máxima / Mínima / Uniformidad por plano (Horizontal, Vertical T1, T2,
 Gol 1, Gol 2), guardar historial con registro de quién cargó cada versión, y
