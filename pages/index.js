@@ -97,8 +97,9 @@ export default function Home({ user }) {
     <div>
       <header className="no-print bg-gradient-to-br from-navy-950 to-teal-900 text-white px-7 py-4 flex items-center justify-between gap-4 border-b-[3px] border-teal-500 flex-wrap">
         <div className="flex items-center gap-3.5">
-          <img src="/logo.png" alt="ITELSA" className="h-8" />
+          <img src="/logo.png" alt="ITELSA" className="h-14" />
           <div>
+            <div className="text-[10px] text-teal-300 uppercase tracking-[0.15em] mb-0.5">ITELSA SAS</div>
             <div className="font-disp font-bold text-[15px] uppercase tracking-wide">Relevamiento Lumínico</div>
             <div className="text-[11.5px] text-teal-300">Iluminancias horizontal y vertical · Uniformidad</div>
           </div>
