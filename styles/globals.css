@@ -38,3 +38,12 @@ body {
   size: landscape;
   margin: 8mm 10mm;
 }
+
+.rotate-hint {
+  display: none;
+}
+@media (hover: none) and (pointer: coarse) and (orientation: portrait) {
+  .rotate-hint {
+    display: flex;
+  }
+}
