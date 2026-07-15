@@ -4,7 +4,7 @@ export default function PrintReport({ meta, grid, results, responsable }) {
   return (
     <div className="hidden print:block">
       <div className="p-3 break-after-page">
-        <PrintHeader meta={meta} responsable={responsable} compact />
+        <PrintHeader meta={meta} responsable={responsable}/>
         <h3 className="font-disp font-semibold text-[11px] uppercase tracking-wide text-teal-700 mt-1 mb-0.5">
           Grilla de medición (88 puntos)
         </h3>
