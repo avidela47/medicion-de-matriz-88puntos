@@ -5,6 +5,7 @@ import { authOptions } from './api/auth/[...nextauth]';
 import GridInput from '../components/GridInput';
 import ResultsPanel from '../components/ResultsPanel';
 import Historial from '../components/Historial';
+import PrintReport from '../components/PrintReport';
 import { makeEmptyGrid, computeResults } from '../lib/gridLogic';
 import { buildWorkbook, downloadWorkbook } from '../lib/exportExcel';
 
@@ -16,6 +17,7 @@ export default function Home({ user }) {
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState('');
   const [editingBanner, setEditingBanner] = useState(false);
+  const [owner, setOwner] = useState(user.name);
 
   const results = useMemo(() => computeResults(grid), [grid]);
 
@@ -32,6 +34,7 @@ export default function Home({ user }) {
     setMeta({ cancha: '', fecha: '', equipo: '', observaciones: '' });
     setGrid(makeEmptyGrid());
     setEditingBanner(false);
+    setOwner(user.name);
     setSaveMsg('');
   }
 
@@ -47,6 +50,7 @@ export default function Home({ user }) {
       observaciones: data.observaciones || '',
     });
     setGrid(data.grid);
+    setOwner(data.createdBy || data.updatedBy || user.name);
     setEditingBanner(true);
     setTab('nuevo');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -179,7 +183,7 @@ export default function Home({ user }) {
               <GridInput grid={grid} onChange={updateCell} filled={results.filled} />
             </div>
 
-            <div className="bg-white border border-line rounded-lg px-5 py-4.5">
+            <div className="no-print bg-white border border-line rounded-lg px-5 py-4.5">
               <h2 className="font-disp text-[13px] uppercase tracking-wide text-teal-700 mb-3.5 flex items-center gap-2 no-print">
                 <span className="w-5 h-5 inline-flex items-center justify-center rounded-full bg-teal-700 text-white text-[11px] font-mono">3</span>
                 Resultados
@@ -211,6 +215,8 @@ export default function Home({ user }) {
           </section>
         )}
       </main>
+
+      <PrintReport meta={meta} grid={grid} results={results} responsable={owner} />
 
       <style jsx global>{`
         .btn {
