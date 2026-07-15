@@ -42,3 +42,7 @@ body {
     display: flex;
   }
 }
+
+@page {
+  margin: 10mm 12mm;
+}
