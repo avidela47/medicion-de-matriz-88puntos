@@ -3,9 +3,9 @@ import { PLANES, N_COLGROUPS, ROWS, COLS, isActive, fmt, fmtRatio } from '../lib
 export default function PrintReport({ meta, grid, results, responsable }) {
   return (
     <div className="hidden print:block">
-      <div className="p-6 break-after-page">
-        <PrintHeader meta={meta} responsable={responsable} />
-        <h3 className="font-disp font-semibold text-[13px] uppercase tracking-wide text-teal-700 mt-4 mb-1">
+      <div className="p-4 break-after-page">
+        <PrintHeader meta={meta} responsable={responsable} compact />
+        <h3 className="font-disp font-semibold text-[12px] uppercase tracking-wide text-teal-700 mt-2 mb-0.5">
           Grilla de medición (88 puntos)
         </h3>
         <PrintLegend filled={results.filled} />
@@ -22,22 +22,24 @@ export default function PrintReport({ meta, grid, results, responsable }) {
   );
 }
 
-function PrintHeader({ meta, responsable }) {
+function PrintHeader({ meta, responsable, compact = false }) {
   return (
-    <div className="border-b-[3px] border-teal-700 pb-3 mb-3">
-      <div className="flex items-center gap-4">
-        <img src="/logo.png" alt="ITELSA" className="h-10" />
+    <div className={`border-b-[3px] border-teal-700 ${compact ? 'pb-1.5 mb-1.5' : 'pb-3 mb-3'}`}>
+      <div className="flex items-center gap-3">
+        <img src="/logo.png" alt="ITELSA" className={compact ? 'h-7' : 'h-10'} />
         <div>
-          <div className="text-[10px] text-muted uppercase tracking-[0.15em]">ITELSA SAS</div>
-          <div className="font-disp font-bold text-[16px]">Relevamiento Lumínico</div>
+          <div className="text-[9px] text-muted uppercase tracking-[0.15em]">ITELSA SAS</div>
+          <div className={`font-disp font-bold ${compact ? 'text-[13px]' : 'text-[16px]'}`}>Relevamiento Lumínico</div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-[11.5px] mt-3">
+      <div className={`grid grid-cols-2 gap-x-6 gap-y-0.5 text-[10.5px] ${compact ? 'mt-1.5' : 'mt-3'}`}>
         <div><span className="text-muted font-semibold">Cliente:</span> {meta.cancha || '—'}</div>
         <div><span className="text-muted font-semibold">Fecha:</span> {meta.fecha || '—'}</div>
         <div><span className="text-muted font-semibold">Responsable:</span> {responsable || '—'}</div>
         <div><span className="text-muted font-semibold">Equipo:</span> {meta.equipo || '—'}</div>
-        <div className="col-span-2"><span className="text-muted font-semibold">Observaciones:</span> {meta.observaciones || '—'}</div>
+        {!compact && (
+          <div className="col-span-2"><span className="text-muted font-semibold">Observaciones:</span> {meta.observaciones || '—'}</div>
+        )}
       </div>
     </div>
   );
@@ -62,10 +64,10 @@ function PrintLegend({ filled }) {
 
 function PrintGrid({ grid }) {
   return (
-    <table className="border-collapse font-mono text-[8px] w-full">
+    <table className="border-collapse font-mono text-[11px] w-full">
       <thead>
         <tr>
-          <th className="border border-gray-300 bg-teal-100 w-[22px]" rowSpan={2} />
+          <th className="border border-gray-300 bg-teal-100 w-[24px]" rowSpan={2} />
           {Array.from({ length: N_COLGROUPS }).map((_, cg) => (
             <th
               key={cg}
