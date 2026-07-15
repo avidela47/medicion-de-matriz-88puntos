@@ -4,7 +4,7 @@ export default function PrintReport({ meta, grid, results, responsable }) {
   return (
     <div className="hidden print:block">
       <div className="p-3 break-after-page">
-        <PrintHeader meta={meta} responsable={responsable}/>
+        <PrintHeader meta={meta} responsable={responsable} tight />
         <h3 className="font-disp font-semibold text-[11px] uppercase tracking-wide text-teal-700 mt-1 mb-0.5">
           Grilla de medición (88 puntos)
         </h3>
@@ -22,9 +22,9 @@ export default function PrintReport({ meta, grid, results, responsable }) {
   );
 }
 
-function PrintHeader({ meta, responsable, compact = false }) {
+function PrintHeader({ meta, responsable, compact = false, tight = false }) {
   return (
-    <div className={`border-b-[3px] border-teal-700 ${compact ? 'pb-1 mb-1' : 'pb-3 mb-3'}`}>
+    <div className={`border-b-[3px] border-teal-700 ${compact || tight ? 'pb-1 mb-1' : 'pb-3 mb-3'}`}>
       <div className="flex items-center gap-3">
         <img src="/logo.png" alt="ITELSA" className={compact ? 'h-6' : 'h-10'} />
         <div>
@@ -32,7 +32,7 @@ function PrintHeader({ meta, responsable, compact = false }) {
           <div className={`font-disp font-bold ${compact ? 'text-[12px]' : 'text-[16px]'}`}>Relevamiento Lumínico</div>
         </div>
       </div>
-      <div className={`grid grid-cols-4 gap-x-6 gap-y-0.5 text-[9.5px] ${compact ? 'mt-1' : 'mt-3 grid-cols-2'}`}>
+      <div className={`grid grid-cols-4 gap-x-6 gap-y-0.5 text-[9.5px] ${compact ? 'mt-1' : tight ? 'mt-1 grid-cols-2' : 'mt-3 grid-cols-2'}`}>
         <div><span className="text-muted font-semibold">Cliente:</span> {meta.cancha || '—'}</div>
         <div><span className="text-muted font-semibold">Fecha:</span> {meta.fecha || '—'}</div>
         <div><span className="text-muted font-semibold">Responsable:</span> {responsable || '—'}</div>
