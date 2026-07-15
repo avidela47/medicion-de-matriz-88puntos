@@ -1,13 +1,14 @@
-import { PLANES, ROWS, COLS, isActive, fmt, fmtRatio } from '../lib/gridLogic';
+import { PLANES, N_COLGROUPS, ROWS, COLS, isActive, fmt, fmtRatio } from '../lib/gridLogic';
 
 export default function PrintReport({ meta, grid, results, responsable }) {
   return (
     <div className="hidden print:block">
       <div className="p-6 break-after-page">
         <PrintHeader meta={meta} responsable={responsable} />
-        <h3 className="font-disp font-semibold text-[13px] uppercase tracking-wide text-teal-700 mt-4 mb-2">
+        <h3 className="font-disp font-semibold text-[13px] uppercase tracking-wide text-teal-700 mt-4 mb-1">
           Grilla de medición (88 puntos)
         </h3>
+        <PrintLegend filled={results.filled} />
         <PrintGrid grid={grid} />
       </div>
       <div className="p-6">
@@ -42,13 +43,41 @@ function PrintHeader({ meta, responsable }) {
   );
 }
 
+function PrintLegend({ filled }) {
+  return (
+    <div className="flex items-center gap-4 text-[9px] text-muted mb-1.5 flex-wrap">
+      <span className="flex items-center gap-1">
+        <span className="inline-block w-2.5 h-2.5 border border-gray-400 bg-white" /> Horizontal (H)
+      </span>
+      <span className="flex items-center gap-1">
+        <span className="inline-block w-2.5 h-2.5 border border-gray-400 bg-[#FBFDFC]" /> Vertical Tribunas (T1/T2)
+      </span>
+      <span className="flex items-center gap-1">
+        <span className="inline-block w-2.5 h-2.5 border border-gray-400 bg-[#F6FBFA]" /> Vertical Goles (G1/G2)
+      </span>
+      <span className="ml-auto font-mono font-semibold text-teal-700">{filled} / 440 valores cargados</span>
+    </div>
+  );
+}
+
 function PrintGrid({ grid }) {
   return (
     <table className="border-collapse font-mono text-[8px] w-full">
       <thead>
         <tr>
-          <th className="border border-gray-300 bg-teal-100 w-[22px]" />
-          {Array.from({ length: 11 }).flatMap((_, cg) =>
+          <th className="border border-gray-300 bg-teal-100 w-[22px]" rowSpan={2} />
+          {Array.from({ length: N_COLGROUPS }).map((_, cg) => (
+            <th
+              key={cg}
+              colSpan={3}
+              className={`border border-gray-300 bg-teal-100 font-disp font-bold ${cg > 0 ? 'border-l-2 border-gray-500' : ''}`}
+            >
+              COL {cg + 1}
+            </th>
+          ))}
+        </tr>
+        <tr>
+          {Array.from({ length: N_COLGROUPS }).flatMap((_, cg) =>
             ['G1', 'H', 'G2'].map((lab, i) => (
               <th
                 key={`${cg}-${lab}`}
