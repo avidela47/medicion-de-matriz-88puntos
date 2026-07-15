@@ -34,15 +34,7 @@ body {
   }
 }
 
-.rotate-hint {
-  display: none;
-}
-@media (orientation: portrait) and (max-width: 900px) {
-  .rotate-hint {
-    display: flex;
-  }
-}
-
 @page {
-  margin: 10mm 12mm;
+  size: landscape;
+  margin: 8mm 10mm;
 }

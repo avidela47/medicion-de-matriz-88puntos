@@ -3,9 +3,9 @@ import { PLANES, N_COLGROUPS, ROWS, COLS, isActive, fmt, fmtRatio } from '../lib
 export default function PrintReport({ meta, grid, results, responsable }) {
   return (
     <div className="hidden print:block">
-      <div className="p-4 break-after-page">
+      <div className="p-3 break-after-page">
         <PrintHeader meta={meta} responsable={responsable} compact />
-        <h3 className="font-disp font-semibold text-[12px] uppercase tracking-wide text-teal-700 mt-2 mb-0.5">
+        <h3 className="font-disp font-semibold text-[11px] uppercase tracking-wide text-teal-700 mt-1 mb-0.5">
           Grilla de medición (88 puntos)
         </h3>
         <PrintLegend filled={results.filled} />
@@ -24,15 +24,15 @@ export default function PrintReport({ meta, grid, results, responsable }) {
 
 function PrintHeader({ meta, responsable, compact = false }) {
   return (
-    <div className={`border-b-[3px] border-teal-700 ${compact ? 'pb-1.5 mb-1.5' : 'pb-3 mb-3'}`}>
+    <div className={`border-b-[3px] border-teal-700 ${compact ? 'pb-1 mb-1' : 'pb-3 mb-3'}`}>
       <div className="flex items-center gap-3">
-        <img src="/logo.png" alt="ITELSA" className={compact ? 'h-7' : 'h-10'} />
+        <img src="/logo.png" alt="ITELSA" className={compact ? 'h-6' : 'h-10'} />
         <div>
-          <div className="text-[9px] text-muted uppercase tracking-[0.15em]">ITELSA SAS</div>
-          <div className={`font-disp font-bold ${compact ? 'text-[13px]' : 'text-[16px]'}`}>Relevamiento Lumínico</div>
+          <div className="text-[8px] text-muted uppercase tracking-[0.15em]">ITELSA SAS</div>
+          <div className={`font-disp font-bold ${compact ? 'text-[12px]' : 'text-[16px]'}`}>Relevamiento Lumínico</div>
         </div>
       </div>
-      <div className={`grid grid-cols-2 gap-x-6 gap-y-0.5 text-[10.5px] ${compact ? 'mt-1.5' : 'mt-3'}`}>
+      <div className={`grid grid-cols-4 gap-x-6 gap-y-0.5 text-[9.5px] ${compact ? 'mt-1' : 'mt-3 grid-cols-2'}`}>
         <div><span className="text-muted font-semibold">Cliente:</span> {meta.cancha || '—'}</div>
         <div><span className="text-muted font-semibold">Fecha:</span> {meta.fecha || '—'}</div>
         <div><span className="text-muted font-semibold">Responsable:</span> {responsable || '—'}</div>
@@ -47,15 +47,15 @@ function PrintHeader({ meta, responsable, compact = false }) {
 
 function PrintLegend({ filled }) {
   return (
-    <div className="flex items-center gap-4 text-[9px] text-muted mb-1.5 flex-wrap">
+    <div className="flex items-center gap-4 text-[8px] text-muted mb-1 flex-wrap">
       <span className="flex items-center gap-1">
-        <span className="inline-block w-2.5 h-2.5 border border-gray-400 bg-white" /> Horizontal (H)
+        <span className="inline-block w-2 h-2 border border-gray-400 bg-white" /> Horizontal (H)
       </span>
       <span className="flex items-center gap-1">
-        <span className="inline-block w-2.5 h-2.5 border border-gray-400 bg-[#FBFDFC]" /> Vertical Tribunas (T1/T2)
+        <span className="inline-block w-2 h-2 border border-gray-400 bg-[#FBFDFC]" /> Vertical Tribunas (T1/T2)
       </span>
       <span className="flex items-center gap-1">
-        <span className="inline-block w-2.5 h-2.5 border border-gray-400 bg-[#F6FBFA]" /> Vertical Goles (G1/G2)
+        <span className="inline-block w-2 h-2 border border-gray-400 bg-[#F6FBFA]" /> Vertical Goles (G1/G2)
       </span>
       <span className="ml-auto font-mono font-semibold text-teal-700">{filled} / 440 valores cargados</span>
     </div>
@@ -64,7 +64,7 @@ function PrintLegend({ filled }) {
 
 function PrintGrid({ grid }) {
   return (
-    <table className="border-collapse font-mono text-[11px] w-full">
+    <table className="border-collapse font-mono text-[9.5px] w-full">
       <thead>
         <tr>
           <th className="border border-gray-300 bg-teal-100 w-[24px]" rowSpan={2} />
