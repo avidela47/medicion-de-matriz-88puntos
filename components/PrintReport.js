@@ -104,7 +104,7 @@ function PrintGrid({ grid }) {
                 const strongL = cm === 0 && rm === 0;
                 if (!isActive(r, c)) {
                   return (
-                    <td key={c} className={`border border-gray-200 bg-gray-50 ${strongL ? 'border-l-2 border-gray-500' : ''}`} />
+                    <td key={c} className={`border border-gray-400 bg-gray-400 ${strongL ? 'border-l-2 border-gray-500' : ''}`} />
                   );
                 }
                 const v = grid?.[r]?.[c];
