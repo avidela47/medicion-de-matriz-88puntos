@@ -1,4 +1,4 @@
-import { PLANES, N_COLGROUPS, ROWS, COLS, isActive, fmt, fmtRatio } from '../lib/gridLogic';
+import { PLANES, N_COLGROUPS, ROWS, COLS, isActive, pointNumber, fmt, fmtRatio } from '../lib/gridLogic';
 
 export default function PrintReport({ meta, grid, results, responsable }) {
   return (
@@ -110,7 +110,7 @@ function PrintGrid({ grid }) {
                 const v = grid?.[r]?.[c];
                 return (
                   <td key={c} className={`border border-gray-300 text-center ${strongL ? 'border-l-2 border-gray-500' : ''}`}>
-                    {v === null || v === undefined ? '' : v}
+                    {v === null || v === undefined ? (rm === 0 ? pointNumber(r, c) : '') : v}
                   </td>
                 );
               })}
