@@ -83,12 +83,14 @@ export default function GridInput({ grid, onChange, filled }) {
                         <td
                           key={c}
                           className={`grid-cell-inactive border border-line ${strongL ? 'border-l-2 border-lineStrong' : ''}`}
-                        />
+                        >
+                          {rm === 0 && cm === 0 ? String(pointNumber(r, c)) : ''}
+                        </td>
                       );
                     }
                     const role = cellRole(r, c);
                     const value = grid[r][c];
-                    const placeholder = (rm === 0 && cm === 1) ? String(pointNumber(r, c)) : '';
+                    const placeholder = role === 'H' && rm === 1 ? String(pointNumber(r, c)) : '';
                     return (
                       <td
                         key={c}
