@@ -110,7 +110,7 @@ function PrintGrid({ grid }) {
                 const v = grid?.[r]?.[c];
                 return (
                   <td key={c} className={`border border-gray-300 text-center ${strongL ? 'border-l-2 border-gray-500' : ''}`}>
-                    {v === null || v === undefined ? (rm === 0 && cm === 0 ? pointNumber(r, c) : '') : v}
+                    {v === null || v === undefined ? (rm === 0 && cm === 2 && c + 1 < COLS ? pointNumber(r, c + 1) : '') : v}
                   </td>
                 );
               })}
