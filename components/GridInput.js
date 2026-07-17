@@ -88,7 +88,7 @@ export default function GridInput({ grid, onChange, filled }) {
                     }
                     const role = cellRole(r, c);
                     const value = grid[r][c];
-                    const placeholder = role === 'TRIB1' ? String(pointNumber(r, c)) : '';
+                    const placeholder = role === 'TRIB1' && cm === 0 ? String(pointNumber(r, c)) : '';
                     return (
                       <td
                         key={c}
