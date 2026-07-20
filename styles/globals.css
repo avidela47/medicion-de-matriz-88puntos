@@ -27,6 +27,9 @@ body {
 .grid-cell-inactive {
   background-image: repeating-linear-gradient(135deg, #F1F4F3, #F1F4F3 3px, #E7ECEB 3px, #E7ECEB 6px);
 }
+.grid-cell-filled {
+  background-image: repeating-linear-gradient(135deg, transparent, transparent 4px, #EDF5F3 4px, #EDF5F3 5px);
+}
 
 @media print {
   .no-print {

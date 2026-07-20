@@ -94,12 +94,13 @@ export default function GridInput({ grid, onChange, filled }) {
                     return (
                       <td
                         key={c}
-                        className={`grid-cell-active border border-line ${strongL ? 'border-l-2 border-lineStrong' : ''}`}
+                        className={`grid-cell-active border border-line ${strongL ? 'border-l-2 border-lineStrong' : ''} ${value !== null && value !== undefined && value !== '' ? 'grid-cell-filled' : ''}`}
                       >
                         <input
                           type="number"
                           step="0.1"
                           inputMode="decimal"
+                          className={value !== null && value !== undefined && value !== '' ? 'font-bold' : ''}
                           placeholder={placeholder}
                           value={value === null || value === undefined ? '' : value}
                           onChange={(e) => handleInput(r, c, e.target.value)}
