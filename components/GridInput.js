@@ -100,7 +100,7 @@ export default function GridInput({ grid, onChange, filled }) {
                           type="number"
                           step="0.1"
                           inputMode="decimal"
-                          className={role === 'H' && rm === 1 && value !== null && value !== undefined && value !== '' ? 'font-semibold' : ''}
+                          className={role === 'H' && rm === 1 && value !== null && value !== undefined && value !== '' ? 'font-bold' : ''}
                           placeholder={placeholder}
                           value={value === null || value === undefined ? '' : value}
                           onChange={(e) => handleInput(r, c, e.target.value)}

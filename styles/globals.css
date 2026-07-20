@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
 body {
   background: #F5F8F7;
@@ -28,7 +28,7 @@ body {
   background-image: repeating-linear-gradient(135deg, #F1F4F3, #F1F4F3 3px, #E7ECEB 3px, #E7ECEB 6px);
 }
 .grid-cell-filled {
-  background-image: repeating-linear-gradient(135deg, transparent, transparent 3px, #D7EAE6 3px, #D7EAE6 5px);
+  background-color: #E8F3F1;
 }
 
 @media print {
