@@ -101,7 +101,7 @@ export default function Home({ user }) {
     <div>
       <header className="no-print bg-white text-navy-950 px-7 py-4 flex items-center justify-between gap-4 border-b-[3px] border-teal-500 flex-wrap">
         <div className="flex items-center gap-3.5">
-          <img src="/logo.png" alt="ITELSA" className="h-14" />
+          <img src="/logo.png" alt="ITELSA" className="h-20" />
         </div>
         <div className="flex items-center gap-3">
           <nav className="flex gap-1 bg-gray-100 p-1 rounded-lg">
