@@ -31,6 +31,13 @@ body {
   background-color: #E8F3F1;
 }
 
+.grid-cell-max {
+  background-color: #C8E8D0 !important;
+}
+.grid-cell-min {
+  background-color: #F5E39E !important;
+}
+
 @media print {
   .no-print {
     display: none !important;

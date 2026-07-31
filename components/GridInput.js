@@ -1,6 +1,6 @@
-import { N_COLGROUPS, ROWS, COLS, isActive, cellRole, pointNumber } from '../lib/gridLogic';
-
+import { N_COLGROUPS, ROWS, COLS, isActive, cellRole, pointNumber, computeResults } from '../lib/gridLogic';
 export default function GridInput({ grid, onChange, filled }) {
+  const results = computeResults(grid);
   function handleInput(r, c, raw) {
     const v = raw.trim() === '' ? null : parseFloat(raw.replace(',', '.'));
     onChange(r, c, Number.isNaN(v) ? null : v);
@@ -94,7 +94,7 @@ export default function GridInput({ grid, onChange, filled }) {
                     return (
                       <td
                         key={c}
-                        className={`grid-cell-active border border-line ${strongL ? 'border-l-2 border-lineStrong' : ''} ${role === 'H' && rm === 1 ? 'grid-cell-filled' : ''}`}
+                        className={`grid-cell-active border border-line ${strongL ? 'border-l-2 border-lineStrong' : ''} ${role === 'H' && rm === 1 ? 'grid-cell-filled' : ''} ${value === results.planes[role]?.maxima ? 'grid-cell-max' : ''} ${value === results.planes[role]?.minima ? 'grid-cell-min' : ''}`}
                       >
                         <input
                           type="number"
