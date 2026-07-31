@@ -94,7 +94,7 @@ export default function GridInput({ grid, onChange, filled }) {
                     return (
                       <td
                         key={c}
-                        className={`grid-cell-active border border-line ${strongL ? 'border-l-2 border-lineStrong' : ''} ${role === 'H' && rm === 1 ? 'grid-cell-filled' : ''} ${value === results.planes[role]?.maxima ? 'grid-cell-max' : ''} ${value === results.planes[role]?.minima ? 'grid-cell-min' : ''}`}
+                        className={`grid-cell-active border border-line ${strongL ? 'border-l-2 border-lineStrong' : ''} ${role === 'H' && rm === 1 ? 'grid-cell-filled' : ''} ${value !== null && value !== undefined && value === results.planes[role]?.maxima ? 'grid-cell-max' : ''} ${value !== null && value !== undefined && value === results.planes[role]?.minima ? 'grid-cell-min' : ''}`}
                       >
                         <input
                           type="number"
