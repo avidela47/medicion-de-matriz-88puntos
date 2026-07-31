@@ -25,7 +25,7 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
   }
 
   return (
-    <div className="border border-lineStrong rounded-lg bg-white overflow-hidden">
+    <div className="border border-lineStrong rounded-lg bg-white">
       <div className="flex items-center gap-4 px-4 py-2.5 border-b border-line text-[11px] text-muted flex-wrap">
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded-sm border border-lineStrong bg-white" /> Horizontal (H)
@@ -115,12 +115,12 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
             })}
           </tbody>
         </table>
-        <input maxLength={2} value={torres?.tl || ''} onChange={(e) => onTorresChange?.('tl', e.target.value.toUpperCase())} className="absolute top-0 left-0 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-        <input maxLength={2} value={torres?.tm || ''} onChange={(e) => onTorresChange?.('tm', e.target.value.toUpperCase())} className="absolute top-0 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-        <input maxLength={2} value={torres?.tr || ''} onChange={(e) => onTorresChange?.('tr', e.target.value.toUpperCase())} className="absolute top-0 right-0 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-        <input maxLength={2} value={torres?.bl || ''} onChange={(e) => onTorresChange?.('bl', e.target.value.toUpperCase())} className="absolute bottom-0 left-0 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-        <input maxLength={2} value={torres?.bm || ''} onChange={(e) => onTorresChange?.('bm', e.target.value.toUpperCase())} className="absolute bottom-0 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-        <input maxLength={2} value={torres?.br || ''} onChange={(e) => onTorresChange?.('br', e.target.value.toUpperCase())} className="absolute bottom-0 right-0 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.tl || ''} onChange={(e) => onTorresChange?.('tl', e.target.value.toUpperCase())} className="absolute -top-3.5 -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.tm || ''} onChange={(e) => onTorresChange?.('tm', e.target.value.toUpperCase())} className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.tr || ''} onChange={(e) => onTorresChange?.('tr', e.target.value.toUpperCase())} className="absolute -top-3.5 -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.bl || ''} onChange={(e) => onTorresChange?.('bl', e.target.value.toUpperCase())} className="absolute -bottom-3.5 -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.bm || ''} onChange={(e) => onTorresChange?.('bm', e.target.value.toUpperCase())} className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.br || ''} onChange={(e) => onTorresChange?.('br', e.target.value.toUpperCase())} className="absolute -bottom-3.5 -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
         </div>
       </div>
     </div>
