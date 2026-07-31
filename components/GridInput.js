@@ -40,7 +40,7 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
       </div>
 
       <div className="overflow-x-auto">
-        <div className="relative inline-block p-4 pt-7">
+        <div className="relative inline-block p-4 pt-10">
         <table className="border-collapse font-mono text-[11px]">
           <thead>
             <tr>
