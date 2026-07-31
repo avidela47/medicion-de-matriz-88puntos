@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'PUT') {
-    const { cancha, fecha, equipo, observaciones, grid } = req.body || {};
+    const { cancha, fecha, equipo, observaciones, grid, torres } = req.body || {};
     if (!cancha || !grid) {
       return res.status(400).json({ error: 'Falta cancha o grilla de datos' });
     }
@@ -45,6 +45,7 @@ export default async function handler(req, res) {
           equipo: equipo || '',
           observaciones: observaciones || '',
           grid,
+          torres: torres || {},
           results: computeResults(grid),
           historial,
           updatedAt: now,
