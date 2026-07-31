@@ -115,9 +115,9 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
             })}
           </tbody>
         </table>
-        <input maxLength={2} value={torres?.tl || ''} onChange={(e) => onTorresChange?.('tl', e.target.value.toUpperCase())} className="absolute -top-3.5 -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-        <input maxLength={2} value={torres?.tm || ''} onChange={(e) => onTorresChange?.('tm', e.target.value.toUpperCase())} className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-        <input maxLength={2} value={torres?.tr || ''} onChange={(e) => onTorresChange?.('tr', e.target.value.toUpperCase())} className="absolute -top-3.5 -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.tl || ''} onChange={(e) => onTorresChange?.('tl', e.target.value.toUpperCase())} className="absolute -top-2 -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.tm || ''} onChange={(e) => onTorresChange?.('tm', e.target.value.toUpperCase())} className="absolute -top-2 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+        <input maxLength={2} value={torres?.tr || ''} onChange={(e) => onTorresChange?.('tr', e.target.value.toUpperCase())} className="absolute -top-2 -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
         <input maxLength={2} value={torres?.bl || ''} onChange={(e) => onTorresChange?.('bl', e.target.value.toUpperCase())} className="absolute -bottom-3.5 -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
         <input maxLength={2} value={torres?.bm || ''} onChange={(e) => onTorresChange?.('bm', e.target.value.toUpperCase())} className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
         <input maxLength={2} value={torres?.br || ''} onChange={(e) => onTorresChange?.('br', e.target.value.toUpperCase())} className="absolute -bottom-3.5 -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
