@@ -32,10 +32,10 @@ body {
 }
 
 .grid-cell-max {
-  background-color: #E8590C !important;
+  background-color: #39FF14 !important;
 }
 .grid-cell-min {
-  background-color: #FFEB3B !important;
+  background-color: #FFFF00 !important;
 }
 
 @media print {
