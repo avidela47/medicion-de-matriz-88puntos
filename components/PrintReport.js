@@ -9,7 +9,7 @@ export default function PrintReport({ meta, grid, results, responsable }) {
           Grilla de medición (88 puntos)
         </h3>
         <PrintLegend filled={results.filled} />
-        <PrintGrid grid={grid} />
+        <PrintGrid grid={grid} torres={meta.torres} />
       </div>
       <div className="p-6">
         <PrintHeader meta={meta} responsable={responsable} />
@@ -62,8 +62,9 @@ function PrintLegend({ filled }) {
   );
 }
 
-function PrintGrid({ grid }) {
+function PrintGrid({ grid, torres }) {
   return (
+    <div className="relative inline-block pt-3 pb-3 pl-3 pr-3">
     <table className="border-collapse font-mono text-[9.5px] w-full">
       <thead>
         <tr>
@@ -121,6 +122,13 @@ function PrintGrid({ grid }) {
         })}
       </tbody>
     </table>
+      <span className="absolute -top-1 -left-1 w-4 h-4 rounded-full border border-gray-500 bg-white text-center text-[6px] font-bold leading-4">{torres?.tl || ''}</span>
+      <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-gray-500 bg-white text-center text-[6px] font-bold leading-4">{torres?.tm || ''}</span>
+      <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full border border-gray-500 bg-white text-center text-[6px] font-bold leading-4">{torres?.tr || ''}</span>
+      <span className="absolute -bottom-1 -left-1 w-4 h-4 rounded-full border border-gray-500 bg-white text-center text-[6px] font-bold leading-4">{torres?.bl || ''}</span>
+      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-gray-500 bg-white text-center text-[6px] font-bold leading-4">{torres?.bm || ''}</span>
+      <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full border border-gray-500 bg-white text-center text-[6px] font-bold leading-4">{torres?.br || ''}</span>
+    </div>
   );
 }
 
