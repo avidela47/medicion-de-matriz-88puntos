@@ -3,7 +3,7 @@ import { PLANES, N_COLGROUPS, ROWS, COLS, isActive, pointNumber, fmt, fmtRatio }
 export default function PrintReport({ meta, grid, results, responsable }) {
   return (
     <div className="hidden print:block">
-      <div className="p-3 pl-10 break-after-page">
+      <div className="p-3 pl-16 break-after-page">
         <PrintHeader meta={meta} responsable={responsable} tight />
         <h3 className="font-disp font-semibold text-[11px] uppercase tracking-wide text-teal-700 mt-1 mb-0.5">
           Grilla de medición (88 puntos)
@@ -68,12 +68,12 @@ function PrintGrid({ grid, torres }) {
     <table className="border-collapse font-mono text-[9.5px] w-full">
       <thead>
         <tr>
-          <th className="border border-gray-300 bg-teal-100 w-[24px]" rowSpan={2} />
+          <th className="border border-gray-300 bg-teal-100 w-[24px] px-1.5" rowSpan={2} />
           {Array.from({ length: N_COLGROUPS }).map((_, cg) => (
             <th
               key={cg}
               colSpan={3}
-              className={`border border-gray-300 bg-teal-100 font-disp font-bold ${cg > 0 ? 'border-l-2 border-gray-500' : ''}`}
+              className={`border border-gray-300 bg-teal-100 font-disp font-bold px-1.5 ${cg > 0 ? 'border-l-2 border-gray-500' : ''}`}
             >
               COL {cg + 1}
             </th>
@@ -84,7 +84,7 @@ function PrintGrid({ grid, torres }) {
             ['G1', 'H', 'G2'].map((lab, i) => (
               <th
                 key={`${cg}-${lab}`}
-                className={`border border-gray-300 bg-teal-100 font-semibold ${i === 0 ? 'border-l-2 border-gray-500' : ''}`}
+                className={`border border-gray-300 bg-teal-100 font-semibold px-1.5 ${i === 0 ? 'border-l-2 border-gray-500' : ''}`}
               >
                 {lab}
               </th>
@@ -97,7 +97,7 @@ function PrintGrid({ grid, torres }) {
           const rm = r % 3;
           return (
             <tr key={r} className={rm === 0 ? 'border-t-2 border-gray-500' : ''}>
-              <td className="border border-gray-300 bg-teal-100 text-center font-semibold">
+              <td className="border border-gray-300 bg-teal-100 text-center font-semibold px-1.5">
                 {rm === 0 ? 'T1' : rm === 1 ? 'H' : 'T2'}
               </td>
               {Array.from({ length: COLS }).map((_, c) => {
@@ -105,14 +105,14 @@ function PrintGrid({ grid, torres }) {
                 const strongL = cm === 0 && rm === 0;
                 if (!isActive(r, c)) {
                   return (
-                    <td key={c} className={`border border-gray-400 bg-gray-400 ${strongL ? 'border-l-2 border-gray-500' : ''}`}>
+                    <td key={c} className={`border border-gray-400 bg-gray-400 px-1.5 ${strongL ? 'border-l-2 border-gray-500' : ''}`}>
                       {rm === 0 && cm === 0 ? pointNumber(r, c) : ''}
                     </td>
                   );
                 }
                 const v = grid?.[r]?.[c];
                 return (
-                  <td key={c} className={`border border-gray-300 text-center ${strongL ? 'border-l-2 border-gray-500' : ''}`}>
+                  <td key={c} className={`border border-gray-300 text-center px-1.5 ${strongL ? 'border-l-2 border-gray-500' : ''}`}>
                     {v === null || v === undefined ? (rm === 0 && cm === 1 ? pointNumber(r, c) : '') : v}
                   </td>
                 );
