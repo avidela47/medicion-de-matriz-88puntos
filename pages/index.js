@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import Head from 'next/head';
 import { getServerSession } from 'next-auth/next';
 import { signOut } from 'next-auth/react';
 import { authOptions } from './api/auth/[...nextauth]';
@@ -100,6 +101,9 @@ export default function Home({ user }) {
 
   return (
     <div>
+      <Head>
+        <title>medicion-de-matriz-88puntos</title>
+      </Head>
       <header className="no-print bg-white text-navy-950 px-7 py-4 flex items-center justify-between gap-4 border-b-[3px] border-teal-500 flex-wrap">
         <div className="flex items-center gap-3.5">
           <img src="/logo.png" alt="ITELSA" className="h-20" />
@@ -110,7 +114,7 @@ export default function Home({ user }) {
               className={`text-[12.5px] font-semibold px-4 py-2 rounded-md ${tab === 'nuevo' ? 'bg-teal-500 text-white' : 'text-navy-950/60 hover:text-navy-950'}`}
               onClick={() => setTab('nuevo')}
             >
-              Nuevo relevamiento
+              Nueva medición
             </button>
             <button
               className={`text-[12.5px] font-semibold px-4 py-2 rounded-md ${tab === 'historial' ? 'bg-teal-500 text-white' : 'text-navy-950/60 hover:text-navy-950'}`}
@@ -148,7 +152,7 @@ export default function Home({ user }) {
             <div className="no-print bg-white border border-line rounded-lg px-5 py-4.5 mb-4.5">
               <h2 className="font-disp text-[13px] uppercase tracking-wide text-teal-700 mb-3.5 flex items-center gap-2">
                 <span className="w-5 h-5 inline-flex items-center justify-center rounded-full bg-teal-700 text-white text-[11px] font-mono">1</span>
-                Datos del relevamiento
+                Datos medición de matriz 88 puntos
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
                 <Field label="Cancha / predio" value={meta.cancha} onChange={(v) => setMeta((m) => ({ ...m, cancha: v }))} placeholder="Ej: Estadio Malvinas Argentinas" />
