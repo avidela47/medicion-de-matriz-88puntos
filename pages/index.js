@@ -102,7 +102,7 @@ export default function Home({ user }) {
   return (
     <div>
       <Head>
-        <title>medicion-de-matriz-88puntos</title>
+        <title>ITELSA SAS | Matriz 88puntos</title>
       </Head>
       <header className="no-print bg-white text-navy-950 px-7 py-4 flex items-center justify-between gap-4 border-b-[3px] border-teal-500 flex-wrap">
         <div className="flex items-center gap-3.5">
