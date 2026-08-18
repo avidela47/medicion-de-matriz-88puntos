@@ -101,12 +101,23 @@ export default function Home({ user }) {
     window.print();
   }
   async function exportPng() {
-    const el = document.getElementById('grid-capture');
-    if (!el) return;
-    const canvas = await html2canvas(el, { backgroundColor: null, scale: 2 });
+    const gridEl = document.getElementById('grid-capture');
+    const resultsEl = document.getElementById('results-capture');
+    if (!gridEl) return;
+    const gridCanvas = await html2canvas(gridEl, { backgroundColor: null, scale: 2 });
+    const resultsCanvas = resultsEl ? await html2canvas(resultsEl, { backgroundColor: null, scale: 2 }) : null;
+    const gap = 24;
+    const width = Math.max(gridCanvas.width, resultsCanvas ? resultsCanvas.width : 0);
+    const height = gridCanvas.height + gap + (resultsCanvas ? resultsCanvas.height : 0);
+    const combined = document.createElement('canvas');
+    combined.width = width;
+    combined.height = height;
+    const ctx = combined.getContext('2d');
+    ctx.drawImage(gridCanvas, 0, 0);
+    if (resultsCanvas) ctx.drawImage(resultsCanvas, 0, gridCanvas.height + gap);
     const link = document.createElement('a');
     link.download = `${meta.cancha || 'grilla'}.png`;
-    link.href = canvas.toDataURL('image/png');
+    link.href = combined.toDataURL('image/png');
     link.click();
   }
 
@@ -199,7 +210,9 @@ export default function Home({ user }) {
                 <span className="w-5 h-5 inline-flex items-center justify-center rounded-full bg-teal-700 text-white text-[11px] font-mono">3</span>
                 Resultados
               </h2>
-              <ResultsPanel results={results} />
+              <div id="results-capture">
+                <ResultsPanel results={results} />
+              </div>
 
               <div className="no-print flex gap-2.5 mt-4.5 flex-wrap">
                 <button onClick={save} disabled={saving} className="btn btn-primary">
