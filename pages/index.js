@@ -13,7 +13,7 @@ import { buildWorkbook, downloadWorkbook } from '../lib/exportExcel';
 export default function Home({ user }) {
   const [tab, setTab] = useState('nuevo');
   const [currentId, setCurrentId] = useState(null);
-  const [meta, setMeta] = useState({ cancha: '', fecha: '', equipo: '', observaciones: '', torres: { tl: '', tm: '', tr: '', bl: '', bm: '', br: '' } });
+  const [meta, setMeta] = useState({ cancha: '', fecha: '', equipo: '', observaciones: '', modelo: 'general', torres: { tl: '', tm: '', tr: '', bl: '', bm: '', br: '', tl2: '', tm2: '', tr2: '', bl2: '', bm2: '', br2: '' } });
   const [grid, setGrid] = useState(makeEmptyGrid());
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState('');
@@ -49,7 +49,8 @@ export default function Home({ user }) {
       fecha: data.fecha ? data.fecha.substring(0, 10) : '',
       equipo: data.equipo || '',
       observaciones: data.observaciones || '',
-      torres: data.torres || { tl: '', tm: '', tr: '', bl: '', bm: '', br: '' },
+      torres: data.torres || { tl: '', tm: '', tr: '', bl: '', bm: '', br: '', tl2: '', tm2: '', tr2: '', bl2: '', bm2: '', br2: '' },
+      modelo: data.modelo || 'general',
     });
     setGrid(data.grid);
     setOwner(data.createdBy || data.updatedBy || user.name);
@@ -184,7 +185,7 @@ export default function Home({ user }) {
                 <span>📱↻</span>
                 <span>Girá el tablet a horizontal para cargar la grilla más cómodo.</span>
               </div>
-              <GridInput grid={grid} onChange={updateCell} filled={results.filled} torres={meta.torres} onTorresChange={(k, v) => setMeta((m) => ({ ...m, torres: { ...m.torres, [k]: v } }))} />
+              <GridInput grid={grid} onChange={updateCell} filled={results.filled} modelo={meta.modelo} torres={meta.torres} onTorresChange={(k, v) => setMeta((m) => ({ ...m, torres: { ...m.torres, [k]: v } }))} />
             </div>
 
             <div className="no-print bg-white border border-line rounded-lg px-5 py-4.5">
