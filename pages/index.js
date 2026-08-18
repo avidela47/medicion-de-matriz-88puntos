@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import html2canvas from 'html2canvas';
 import Head from 'next/head';
 import { getServerSession } from 'next-auth/next';
 import { signOut } from 'next-auth/react';
@@ -98,6 +99,15 @@ export default function Home({ user }) {
 
   function doPrint() {
     window.print();
+  }
+  async function exportPng() {
+    const el = document.getElementById('grid-capture');
+    if (!el) return;
+    const canvas = await html2canvas(el, { backgroundColor: null, scale: 2 });
+    const link = document.createElement('a');
+    link.download = `${meta.cancha || 'grilla'}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
   }
 
   return (
@@ -200,6 +210,9 @@ export default function Home({ user }) {
                 </button>
                 <button onClick={doPrint} className="btn btn-outline">
                   🖶 Imprimir / PDF
+                </button>
+                <button onClick={exportPng} className="btn btn-outline">
+                  🖼 Exportar PNG
                 </button>
                 <button onClick={startNew} className="btn btn-ghost">
                   Limpiar grilla

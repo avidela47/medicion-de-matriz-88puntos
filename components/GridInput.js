@@ -25,7 +25,7 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
   }
 
   return (
-    <div className="border border-lineStrong rounded-lg bg-white">
+    <div id="grid-capture" className="border border-lineStrong rounded-lg bg-white">
       <div className="flex items-center gap-4 px-4 py-2.5 border-b border-line text-[11px] text-muted flex-wrap">
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-3 h-3 rounded-sm border border-lineStrong bg-white" /> Horizontal (H)
