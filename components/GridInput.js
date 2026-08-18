@@ -40,7 +40,7 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
       </div>
 
       <div className="overflow-x-auto">
-        <div className={`relative inline-block p-4 ml-4 ${modelo === 'la_plata' ? 'pt-16 pb-12' : 'pt-10'}`}>
+        <div className={`relative inline-block p-4 ml-4 ${modelo === 'la_plata' ? 'pt-20 pb-14' : 'pt-10'}`}>
         <table className="border-collapse font-mono text-[11px]">
           <thead>
             <tr>
