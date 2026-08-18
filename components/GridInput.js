@@ -40,7 +40,7 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
       </div>
 
       <div className="overflow-x-auto">
-        <div className={`relative inline-block p-4 ml-4 ${modelo === 'la_plata' ? 'pt-12 pb-12' : 'pt-10'}`}>
+        <div className={`relative inline-block p-4 ml-4 ${modelo === 'la_plata' ? 'pt-16 pb-12' : 'pt-10'}`}>
         <table className="border-collapse font-mono text-[11px]">
           <thead>
             <tr>
@@ -123,9 +123,9 @@ export default function GridInput({ grid, onChange, filled, torres, onTorresChan
         <input maxLength={2} value={torres?.br || ''} onChange={(e) => onTorresChange?.('br', e.target.value.toUpperCase())} className="absolute -bottom-3.5 -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
         {modelo === 'la_plata' && (
           <>
-            <input maxLength={2} value={torres?.tl2 || ''} onChange={(e) => onTorresChange?.('tl2', e.target.value.toUpperCase())} className="absolute top-[-20px] -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-            <input maxLength={2} value={torres?.tm2 || ''} onChange={(e) => onTorresChange?.('tm2', e.target.value.toUpperCase())} className="absolute top-[-24px] left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
-            <input maxLength={2} value={torres?.tr2 || ''} onChange={(e) => onTorresChange?.('tr2', e.target.value.toUpperCase())} className="absolute top-[-20px] -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+            <input maxLength={2} value={torres?.tl2 || ''} onChange={(e) => onTorresChange?.('tl2', e.target.value.toUpperCase())} className="absolute top-[-30px] -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+            <input maxLength={2} value={torres?.tm2 || ''} onChange={(e) => onTorresChange?.('tm2', e.target.value.toUpperCase())} className="absolute top-[-34px] left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
+            <input maxLength={2} value={torres?.tr2 || ''} onChange={(e) => onTorresChange?.('tr2', e.target.value.toUpperCase())} className="absolute top-[-30px] -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
             <input maxLength={2} value={torres?.bl2 || ''} onChange={(e) => onTorresChange?.('bl2', e.target.value.toUpperCase())} className="absolute bottom-[-44px] -left-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
             <input maxLength={2} value={torres?.bm2 || ''} onChange={(e) => onTorresChange?.('bm2', e.target.value.toUpperCase())} className="absolute bottom-[-44px] left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
             <input maxLength={2} value={torres?.br2 || ''} onChange={(e) => onTorresChange?.('br2', e.target.value.toUpperCase())} className="absolute bottom-[-44px] -right-3.5 w-7 h-7 rounded-full border border-lineStrong bg-white text-center text-[10px] font-semibold" />
