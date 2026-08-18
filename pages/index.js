@@ -148,12 +148,16 @@ export default function Home({ user }) {
                 </button>
               </div>
             )}
-
             <div className="no-print bg-white border border-line rounded-lg px-5 py-4.5 mb-4.5">
+
               <h2 className="font-disp text-[13px] uppercase tracking-wide text-teal-700 mb-3.5 flex items-center gap-2">
                 <span className="w-5 h-5 inline-flex items-center justify-center rounded-full bg-teal-700 text-white text-[11px] font-mono">1</span>
                 Datos medición de matriz 88 puntos
               </h2>
+              <div className="flex gap-2 mb-3.5">
+                <button type="button" className={`text-[12px] font-semibold px-3.5 py-1.5 rounded-md border ${meta.modelo !== 'la_plata' ? 'bg-teal-600 text-white border-teal-600' : 'bg-white text-navy-950/70 border-line'}`} onClick={() => setMeta((m) => ({ ...m, modelo: 'general' }))}>Modelo General</button>
+                <button type="button" className={`text-[12px] font-semibold px-3.5 py-1.5 rounded-md border ${meta.modelo === 'la_plata' ? 'bg-teal-600 text-white border-teal-600' : 'bg-white text-navy-950/70 border-line'}`} onClick={() => setMeta((m) => ({ ...m, modelo: 'la_plata' }))}>Modelo La Plata</button>
+              </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
                 <Field label="Cancha / predio" value={meta.cancha} onChange={(v) => setMeta((m) => ({ ...m, cancha: v }))} placeholder="Ej: Estadio Malvinas Argentinas" />
                 <Field label="Fecha" type="date" value={meta.fecha} onChange={(v) => setMeta((m) => ({ ...m, fecha: v }))} />
