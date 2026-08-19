@@ -2,8 +2,8 @@ import { PLANES, N_COLGROUPS, ROWS, COLS, isActive, pointNumber, fmt, fmtRatio }
 
 export default function PrintReport({ meta, grid, results, responsable }) {
   return (
-    <div className="hidden print:block">
-      <div className="p-3 pl-16 break-after-page">
+    <div className="absolute -left-[9999px] -top-[9999px] print:static print:left-auto print:top-auto print:block">
+      <div id="print-page-1" className="p-3 pl-16 break-after-page">
         <PrintHeader meta={meta} responsable={responsable} tight />
         <h3 className="font-disp font-semibold text-[11px] uppercase tracking-wide text-teal-700 mt-1 mb-0.5">
           Grilla de medición (88 puntos)
@@ -11,7 +11,7 @@ export default function PrintReport({ meta, grid, results, responsable }) {
         <PrintLegend filled={results.filled} />
         <PrintGrid grid={grid} torres={meta.torres} />
       </div>
-      <div className="p-6">
+      <div id="print-page-2" className="p-6">
         <PrintHeader meta={meta} responsable={responsable} />
         <h3 className="font-disp font-semibold text-[13px] uppercase tracking-wide text-teal-700 mt-4 mb-2">
           Resultados

@@ -101,8 +101,8 @@ export default function Home({ user }) {
     window.print();
   }
   async function exportPng() {
-    const gridEl = document.getElementById('grid-capture');
-    const resultsEl = document.getElementById('results-capture');
+    const gridEl = document.getElementById('print-page-1');
+    const resultsEl = document.getElementById('print-page-2');
     if (!gridEl) return;
     const gridCanvas = await html2canvas(gridEl, { backgroundColor: null, scale: 2 });
     const resultsCanvas = resultsEl ? await html2canvas(resultsEl, { backgroundColor: null, scale: 2 }) : null;
